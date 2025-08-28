@@ -12,6 +12,8 @@ def home():
 def webhook():
     req = request.get_json(silent=True, force=True)
 
+    print(req)
+    
     intent_name = req.get('queryResult').get('intent').get('displayName')
  
     print(intent_name)
