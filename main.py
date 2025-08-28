@@ -8,6 +8,10 @@ app = Flask(__name__)
 def home():
     return "OK", 200
 
+@app.route('/listar', methods=["GET"])
+def listar():
+    return jsonify({"mensagem": "Listar OK"}), 200
+
 @app.route('/criar', methods=["POST"])
 def criar():
     data = request.get_json()  # Recebe JSON enviado no corpo do POST
