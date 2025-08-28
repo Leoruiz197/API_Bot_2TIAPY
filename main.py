@@ -8,6 +8,10 @@ app = Flask(__name__)
 def home():
     return "OK", 200
 
+@app.route('/webhook', methods=["POST"])
+def webhook():
+    return "webhook OK", 200
+
 @app.route('/listar', methods=["GET"])
 def listar():
     return jsonify({"mensagem": "Listar OK"}), 200
