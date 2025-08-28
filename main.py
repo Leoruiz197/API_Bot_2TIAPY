@@ -10,7 +10,20 @@ def home():
 
 @app.route('/webhook', methods=["POST"])
 def webhook():
-    return "webhook OK", 200
+    req = request.get_json(silent=True, force=True)
+
+    intent_name = req.get('queryResult').get('intent').get('displayName')
+ 
+    if intent_name == 'testeapi':
+        response_text = "Teste de API foi um sucesso!"
+
+    return make_webhook_response(response_text)
+
+def make_webhook_response(text):
+    return jsonify({
+        "fulfillmentText": text,
+        "source": "webhook"
+    })
 
 @app.route('/listar', methods=["GET"])
 def listar():
