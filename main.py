@@ -15,7 +15,7 @@ def webhook():
     intent_name = req.get('queryResult').get('intent').get('displayName')
  
     print(intent_name)
-    if intent_name == 'testeapi':
+    if intent_name == 'teste de api':
         response_text = "Teste de API foi um sucesso!"
     else:
         response_text = "Desculpe, não entendi sua escolha."
